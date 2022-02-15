@@ -62,7 +62,6 @@ class ApiController extends Controller
 
         if ($uri == 'myTasks') {
             Log::debug($uri);
-            $task->group_id = 0;
 
             // ======== 外部キー制約を無効化 =============================
 
@@ -72,6 +71,7 @@ class ApiController extends Controller
 
             // ============================================================
 
+            $task->group_id = 0;
             $task->save();
 
             // ======== 外部キー制約を有効化 ==============================
