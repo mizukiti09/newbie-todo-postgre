@@ -66,9 +66,6 @@ class ApiController extends Controller
 
             // ======== 外部キー制約を無効化 =============================
 
-            // mySqlの書き方
-            Schema::disableForeignKeyConstraints();
-
             // postgresSqlの書き方
             DB::statement('	
             ALTER TABLE tasks DISABLE TRIGGER ALL;');
@@ -78,9 +75,6 @@ class ApiController extends Controller
             $task->save();
 
             // ======== 外部キー制約を有効化 ==============================
-
-            // mySqlの書き方
-            Schema::enableForeignKeyConstraints();
 
             // postgresSqlの書き方
             DB::statement('	
