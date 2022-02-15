@@ -21,11 +21,11 @@ class CreateTasksTable extends Migration
                 ->foreign('user_id')
                 ->references('id')
                 ->on('users');
-            $table->unsignedBigInteger('group_id')->default(0);
-            $table
-                ->foreign('group_id')
-                ->references('id')
-                ->on('groups');
+            $table->integer('group_id')->default(0);
+            // $table
+            //     ->foreign('group_id')
+            //     ->references('id')
+            //     ->on('groups');
             $table->unsignedBigInteger('state_id')->default(1);
             $table
                 ->foreign('state_id')

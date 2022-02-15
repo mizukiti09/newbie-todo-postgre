@@ -62,23 +62,23 @@ class ApiController extends Controller
 
         if ($uri == 'myTasks') {
             Log::debug($uri);
+            $task->group_id = 0;
 
             // ======== 外部キー制約を無効化 =============================
 
             // postgresSqlの書き方
-            DB::statement('	
-            ALTER TABLE tasks DISABLE TRIGGER ALL;');
+            // DB::statement('
+            // ALTER TABLE tasks DISABLE TRIGGER ALL;');
 
             // ============================================================
 
-            $task->group_id = 0;
             $task->save();
 
             // ======== 外部キー制約を有効化 ==============================
 
             // postgresSqlの書き方
-            DB::statement('	
-            ALTER TABLE tasks ENABLE TRIGGER ALL;');
+            // DB::statement('
+            // ALTER TABLE tasks ENABLE TRIGGER ALL;');
 
             // ============================================================
         } else {
